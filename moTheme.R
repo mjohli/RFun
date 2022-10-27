@@ -1,8 +1,0 @@
-library(ggplot2)
-moTheme <- theme(text = element_text(size = 20),
-                 panel.grid = element_blank(),
-                 panel.border = element_blank(),
-                 panel.background = element_rect(fill = "white",
-                                                 colour = "white",
-                                                 size = 0.5, 
-                                                 linetype = "solid"))
