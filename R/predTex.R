@@ -1,3 +1,13 @@
+#' A linear prediction LaTex generator
+#'
+#' This generates the linear prediction formula in LaTex code for given values. Note that both vectors have to be the same length
+#' @param x The first vector
+#' @param y The second vector
+#' @param px The value of x to predict y by
+#' @export
+#' @examples
+#' predTex(c(1,2,3), c(2,3,4), 1)
+#'
 predTex <- function(x, y, px){
     mx <- round(mean(x), 2)
     my <- round(mean(y), 2)
