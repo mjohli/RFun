@@ -9,7 +9,7 @@
 #'
 covTex <- function(x, y){
     text <- paste0("$s_{xy} = \\frac1n\\sum_{k=1}^n(x_k-\\bar x)(y_k-\\bar y) = \\frac1{", length(x), "}(")
-    for(i in length(x)){
+    for(i in 1:length(x)){
         text <- paste0(text, "(", x[i], "-", mean(x), ")(", y[i], "-", mean(y), ")+")
     }
     text <- substr(text, 1, nchar(text) -1)
