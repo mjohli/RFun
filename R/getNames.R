@@ -1,3 +1,13 @@
+#' A function that connects series and character names
+#'
+#' This gives the character names appearing in a given series and vice versa
+#' @param name The name of either a series character or series title
+#' @param lowerCase Indicates whether the given and the returned names should be all lowercase. Default is 'None' making no lower case, 'Series' and 'Characters' give and take series title and characters respectively in lower case, 'Both' gives and takes everything in lower case.
+#' @export
+#' @examples
+#' covTex(c(1,2,3), c(2,3,4))
+#'
+
 getNames <- function(name, lowerCase = "None"){
   series <- list("HIMYM" = c("Ted", "Lily", "Marshall", "Barney", "Robin"),
                  "Friends" = c("Monica", "Rachel", "Phoebe", "Ross", "Chandler", "Joey"),
