@@ -8,7 +8,7 @@
 #' covTex(c(1,2,3), c(2,3,4))
 #'
 
-getNames <- function(name, lowerCase = "None"){
+getNames <- Vectorize(function(name, lowerCase = "None"){
   series <- list("HIMYM" = c("Ted", "Lily", "Marshall", "Barney", "Robin"),
                  "Friends" = c("Monica", "Rachel", "Phoebe", "Ross", "Chandler", "Joey"),
                  "TBBT" = c("Sheldon", "Howard", "Leonard", "Penny", "Raj", "Amy", "Bernadette"),
@@ -19,14 +19,15 @@ getNames <- function(name, lowerCase = "None"){
   if(lowerCase %in% c("Both", "Series")){
     names(series) <- tolower(names(series))
   }
+  sName <- names(series)[unlist(lapply(series, function(x){name %in% x}))]
   if(name %in% names(series)){
     return(series[[name]])
   } else{
     sName <- names(series)[unlist(lapply(series, function(x){name %in% x}))]
     if(length(sName)){
-      stop("No character or series name like this exists.")
-    } else{
       return(sName)
+    } else{
+      stop(paste0("No character or series named '", name, "'"))
     }
   }
-}
+})
