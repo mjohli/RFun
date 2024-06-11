@@ -11,7 +11,7 @@
 stringToNum <- function(x, n = c(1, 2), words = TRUE){
     x <- stri_trans_general(x, "latin-ascii")
     if(words){
-        x <- Vectorize(words_to_numbers::words_to_numbers)(x)
+        x <- Vectorize(words_to_numbers)(x)
     }
     x <- gsub(paste0("\\D*(\\d{", paste(n, collapse = ","), "})\\D.*"), "\\1", x)
     x <- as.numeric(x)

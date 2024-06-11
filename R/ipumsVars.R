@@ -7,12 +7,16 @@
 #' @export
 #' @examples
 #' ipumsVars("ABC", 1:3)
-#' ipumsVars(c("ABC", "DEF"), 1))
+#' ipumsVars(c("ABC", "DEF"), 1, "margin")
+#' try(ipumsVars("ABC", 1, type = "wrong"))
 #'
 
 ipumsVars <- function(code, n, type = "estimate"){
-    if(nchar(code) != 3){
-        warning("Usually the codes should contain 3 letters. The last letter defines whether it's estimate or margin of error")
+    warn <- "Usually the codes should contain three letters. The last letter defines whether it's estimate or margin of error."
+    if(length(unique(nchar(code))) != 1){
+        warning(paste0("Multiple codes with different lengths given. ", warn))
+    } else if(nchar(code)[1] != 3){
+        warning(warn)
     }
     e <- c("estimate", "e")
     m <- c("margin", "error", "margin of error", "error-margin",
