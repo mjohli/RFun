@@ -18,7 +18,7 @@ stringToNum <- function(x, n = c(1, 2), words = TRUE, strOut = FALSE, encodeClea
     if(words){
         x <- Vectorize(FUN = words_to_numbers)(x)
     }
-    x <- gsub(pattern = paste0("\\D*(\\d{", paste(n, collapse = ","), "})\\D.*"), replacement = "\\1", x)
+    x <- gsub(pattern = paste0("^\\D*(\\d{", paste(n, collapse = ","), "})(\\D.*)?$"), replacement = "\\1", x)
     if(!strOut){
         x <- as.numeric(x)
     }
