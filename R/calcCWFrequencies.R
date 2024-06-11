@@ -10,7 +10,8 @@
 
 calcCWFrequencies <- function(dat, geocode1, geocode2){
     plot <- function(pDat){
-        ggplot(data = pDat) +#
+        library(ggplot2)
+        ggplot(data = pDat) +
             aes(Freq) +
             geom_bar(color = "coral", fill = "red") +
             moTheme
