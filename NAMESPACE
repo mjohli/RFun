@@ -2,6 +2,7 @@
 
 export(allDuplicated)
 export(bigSummary)
+export(calcCWFrequencies)
 export(covTex)
 export(getNames)
 export(givePrice)
