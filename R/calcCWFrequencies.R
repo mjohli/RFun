@@ -23,10 +23,10 @@ calcCWFrequencies <- function(dat, geocode1, geocode2){
     dat <- dat[order(dat[[geocode1]]),]
     d1 <- as.data.frame(table(dat[[geocode1]]))
     res[["geo1"]]["max"] <- max(d1$Freq)
-    res[["geo1"]]["plot"] <- plot(pDat = d1)
+    res[["geo1"]][["plot"]] <- plot(pDat = d1)
     #L2:
     d2 <- as.data.frame(table(dat[[geocode2]]))
     res[["geo2"]]["max"] <- max(d2$Freq)
-    res[["geo2"]]["plot"] <- plot(d2)
+    res[["geo2"]][["plot"]] <- plot(d2)
     return(res)
 }
