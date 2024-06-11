@@ -6,6 +6,7 @@
 #'
 
 bigSummary <- function(dvar){
+    library(ggplot2)
     nam <- deparse(expr = substitute(expr = dvar))
     print(nam)
     print(summary(object = dvar))

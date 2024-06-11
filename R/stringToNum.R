@@ -13,7 +13,7 @@
 
 stringToNum <- function(x, n = c(1, 2), words = TRUE, strOut = FALSE, encodeCleaner = TRUE){
     if(encodeCleaner){
-        x <- stri_trans_general(str = x, id = "latin-ascii")
+        x <- stringi::stri_trans_general(str = x, id = "latin-ascii")
     }
     if(words){
         x <- Vectorize(FUN = words_to_numbers)(x)
