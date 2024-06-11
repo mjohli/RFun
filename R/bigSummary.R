@@ -1,17 +1,17 @@
 #' Generates an extensive summary of a numerical variable
 #'
 #' This prints the name of the variable, a summary and a density plot
-#' @param dvar The column of the data frame to investigate
+#' @param x The column of the data frame to investigate
 #' @export
 #'
 
-bigSummary <- function(dvar){
+bigSummary <- function(x){
     library(ggplot2)
-    nam <- deparse(expr = substitute(expr = dvar))
+    nam <- deparse(expr = substitute(expr = x))
     print(nam)
-    print(summary(object = dvar))
+    print(summary(object = x))
     ggplot() +
-        aes(dvar) +
+        aes(x) +
         geom_density() +
         xlab(label = nam) +
         moTheme

@@ -4,7 +4,7 @@
 \alias{bigSummary}
 \title{Generates an extensive summary of a numerical variable}
 \usage{
-bigSummary(dvar)
+bigSummary(x)
 }
 \arguments{
 \item{dvar}{The column of the data frame to investigate}
