@@ -17,8 +17,8 @@ ipumsVars(code, n, type = "estimate")
 This generates IPUMS variable codes based on letter/number code(s) and number(s)
 }
 \examples{
-ipumsVars("ABC", 1:3)
-ipumsVars(c("ABC", "DEF"), 1, "margin")
-try(ipumsVars("ABC", 1, type = "wrong"))
+ipumsVars(code = "ABC", n = 1:3)
+ipumsVars(c("ABC", "DEF"), 1, type = "margin")
+try(ipumsVars("ABC", 1, "wrong"))
 
 }

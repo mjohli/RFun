@@ -16,6 +16,6 @@ This generates the variance formula in LaTex code for given values.
 }
 \examples{
 varTex(c(1,2,3))
-varTex(c(2,3,4), "y")
+varTex(c(2,3,4), letter = "y")
 
 }

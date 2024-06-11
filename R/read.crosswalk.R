@@ -6,5 +6,5 @@
 #'
 
 read.crosswalk <- function(path){
-    return(read.csv(path)[-1,])
+    return(read.csv(file = path)[-1,])
 }

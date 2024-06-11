@@ -17,6 +17,6 @@ predTex(x, y, px)
 This generates the linear prediction formula in LaTex code for given values. Note that both vectors have to be the same length
 }
 \examples{
-predTex(c(1,2,3), c(2,3,4), 1)
+predTex(c(1, 2, 3), y = c(2, 3, 4), px = 1)
 
 }

@@ -16,6 +16,6 @@ This generates the mean formula in LaTex code for given values.
 }
 \examples{
 mTex(c(1,2,3))
-mTex(c(2,3,4), "y")
+mTex(c(2,3,4), letter = "y")
 
 }

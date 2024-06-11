@@ -6,9 +6,9 @@
 #' @param type The type of value wanted: "estimate" for Estimate, "margin" for Margin of Error, misspecify for further information on possible values., if NULL, only `code` is used.
 #' @export
 #' @examples
-#' ipumsVars("ABC", 1:3)
-#' ipumsVars(c("ABC", "DEF"), 1, "margin")
-#' try(ipumsVars("ABC", 1, type = "wrong"))
+#' ipumsVars(code = "ABC", n = 1:3)
+#' ipumsVars(c("ABC", "DEF"), 1, type = "margin")
+#' try(ipumsVars("ABC", 1, "wrong"))
 #'
 
 ipumsVars <- function(code, n, type = "estimate"){
@@ -32,5 +32,5 @@ ipumsVars <- function(code, n, type = "estimate"){
                     paste(e, collapse = ", "), "\nMargin of Error: ",
                     paste(m, collapse = ", ")))
     }
-    paste0(code, type, formatC(n, digits = 2, flag = "0", format = "d"))
+    return(paste0(code, type, formatC(n, digits = 2, format = "d", flag = "0")))
 }

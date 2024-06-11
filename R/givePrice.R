@@ -19,5 +19,5 @@ givePrice <- function(p1, cps1, p2, cps2){
         nBuil <- 2
         p <- round(p1 / cpsRel)
     }
-    cat(paste("Building ", nBuil, "\nnew cost: ", p))
+    return(cat(paste("Building ", nBuil, "\nnew cost: ", p)))
 }

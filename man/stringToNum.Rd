@@ -15,6 +15,6 @@ stringToNum(x, n = c(1, 2), words = TRUE)
 This resolves encoding issues and extracts a number of specified length from a string
 }
 \examples{
-stringToNum(x = c("abc", "abc123", "abc12de", "twelve"))
+stringToNum(c("abc", "abc123", "abc12de", "twelve"))
 
 }

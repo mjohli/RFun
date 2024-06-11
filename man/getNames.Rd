@@ -15,6 +15,8 @@ getNames(name, lowerCase = "None")
 This gives the character names appearing in a given series and vice versa
 }
 \examples{
-covTex(c(1,2,3), c(2,3,4))
+getNames(name = "HIMYM")
+getNames("Ted")
+getNames("ted", lowerCase = "both")
 
 }

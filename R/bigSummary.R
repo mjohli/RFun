@@ -6,11 +6,12 @@
 #'
 
 bigSummary <- function(dvar){
-    print(deparse(substitute(dvar)))
-    print(summary(dvar))
+    nam <- deparse(expr = substitute(expr = dvar))
+    print(nam)
+    print(summary(object = dvar))
     ggplot() +
         aes(dvar) +
         geom_density() +
-        xlab(deparse(substitute(dvar))) +
+        xlab(label = nam) +
         moTheme
 }
