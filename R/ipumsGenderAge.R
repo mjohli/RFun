@@ -12,5 +12,5 @@ ipumsGenderAge <- function(df, code){
     df <- df[,ipumsVars(code, 3:25)] + df[,ipumsVars(code, 27:49)]
     means <- apply(df, 1, function(x) meanFromFrequencies(x, intervals[["weights"]]))
     medians <- apply(df, 1, function(x) interpMedian(x, intervals[["lowBounds"]], intervals[["widths"]]))
-    return(data.frame(means = means, medians = medians, shareF = shareF))
+    return(data.frame(meanAge = means, medianAge = medians, shareF = shareF))
 }
