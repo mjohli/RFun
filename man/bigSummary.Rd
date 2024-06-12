@@ -7,7 +7,7 @@
 bigSummary(x)
 }
 \arguments{
-\item{dvar}{The column of the data frame to investigate}
+\item{x}{The column of the data frame to investigate}
 }
 \description{
 This prints the name of the variable, a summary and a density plot
