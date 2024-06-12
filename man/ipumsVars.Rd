@@ -7,7 +7,7 @@
 ipumsVars(code, n, type = "estimate")
 }
 \arguments{
-\item{code}{The 3 letter code of the IPUMS variable, the fourth letter indicates whether it's estimate (E) or margin of error (M)}
+\item{code}{The 3/4 letter code of the IPUMS variable, the fourth letter indicates whether it's estimate (E) or margin of error (M)}
 
 \item{n}{The number of the IPUMS variable that comes after the letter code. It's sufficient to give the number without the leading zeros.}
 

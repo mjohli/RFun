@@ -1,7 +1,7 @@
 #' IPUMS variable codes generator
 #'
 #' This generates IPUMS variable codes based on letter/number code(s) and number(s)
-#' @param code The 3 letter code of the IPUMS variable, the fourth letter indicates whether it's estimate (E) or margin of error (M)
+#' @param code The 3/4 letter code of the IPUMS variable, the fourth letter indicates whether it's estimate (E) or margin of error (M)
 #' @param n The number of the IPUMS variable that comes after the letter code. It's sufficient to give the number without the leading zeros.
 #' @param type The type of value wanted: "estimate" for Estimate, "margin" for Margin of Error, misspecify for further information on possible values., if NULL, only `code` is used.
 #' @export
@@ -12,10 +12,10 @@
 #'
 
 ipumsVars <- function(code, n, type = "estimate"){
-    warn <- "Usually the codes should contain three letters. The last letter defines whether it's estimate or margin of error."
+    warn <- "Usually the codes should contain three or four letters. The last letter defines whether it's estimate or margin of error."
     if(length(unique(nchar(code))) != 1){
         warning(paste0("Multiple codes with different lengths given. ", warn))
-    } else if(nchar(code)[1] != 3){
+    } else if(!nchar(code)[1] %in% 3:4){
         warning(warn)
     }
     e <- c("estimate", "e")
