@@ -4,7 +4,7 @@
 \alias{ipumsVars}
 \title{IPUMS variable codes generator}
 \usage{
-ipumsVars(code, n, type = "estimate")
+ipumsVars(code, n = 1, type = "estimate")
 }
 \arguments{
 \item{code}{The 3/4 letter code of the IPUMS variable, the fourth letter indicates whether it's estimate (E) or margin of error (M)}

@@ -4,7 +4,10 @@
 \alias{updateRFun}
 \title{Convenience function for updating RFun}
 \usage{
-updateRFun()
+updateRFun(...)
+}
+\arguments{
+\item{...}{Arguments to be passed on to \code{install_github()}}
 }
 \description{
 Unloads RFun, installs the newest version and attaches it again

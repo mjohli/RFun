@@ -4,12 +4,14 @@
 \alias{ipumsGenderAge}
 \title{A function that calculates share female median and mean age for IPUMS data}
 \usage{
-ipumsGenderAge(df, code)
+ipumsGenderAge(df, code, year = NULL)
 }
 \arguments{
 \item{df}{The data frame to calculate for}
 
 \item{code}{The three letter code for age}
+
+\item{year}{Year or another data frame identifier to be added to the column names}
 }
 \description{
 Calculates share female, mean and interpolated median age for IPUMS data sets based on frequency tables.
