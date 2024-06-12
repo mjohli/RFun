@@ -9,6 +9,6 @@
 
 giveIntervals <- function(lBounds){
     return(list(lowBounds = lBounds[-length(lBounds)],
-                weights = c((lBounds[-1] + lowBounds[-length(lowBounds)])/2),
-                widths = c(lBounds[-1] - lowBounds[-length(lowBounds)])))
+                weights = c((lBounds[-1] + lBounds[-length(lBounds)])/2),
+                widths = c(lBounds[-1] - lBounds[-length(lBounds)])))
 }
