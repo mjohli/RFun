@@ -11,7 +11,7 @@
 #' try(ipumsVars("ABC", 1, "wrong"))
 #'
 
-ipumsVars <- function(code, n, type = "estimate"){
+ipumsVars <- function(code, n = 1, type = "estimate"){
     warn <- "Usually the codes should contain three or four letters. The last letter defines whether it's estimate or margin of error."
     if(length(unique(nchar(code))) != 1){
         warning(paste0("Multiple codes with different lengths given. ", warn))
