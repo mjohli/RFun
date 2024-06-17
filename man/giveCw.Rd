@@ -4,16 +4,28 @@
 \alias{giveCw}
 \title{Crosswalk prepare function}
 \usage{
-giveCw(cw, from, to, by, ftb = c(from, to, by))
+giveCw(
+  cw,
+  from = NULL,
+  to = NULL,
+  by = NULL,
+  sameLevel = TRUE,
+  missings = c(" ", "99999", NA),
+  ftb = c(from, to, by)
+)
 }
 \arguments{
 \item{cw}{A crosswalk as data.frame}
 
-\item{from}{Variable from which the crosswalk should happen}
+\item{from}{String indicating variable from which the crosswalk should happen}
 
-\item{to}{Variable to which crosswalk should happen}
+\item{to}{String indicating variable to which crosswalk should happen}
 
-\item{by}{Variable for selecting which case in case of duplicates}
+\item{by}{String indicating variable for selecting which case in case of duplicates}
+
+\item{sameLevel}{Boolean indicating whether duplicates for the to-variable should be avoided}
+
+\item{missings}{Values that should be removed}
 
 \item{ftb}{Variables can also be given as vector}
 }
