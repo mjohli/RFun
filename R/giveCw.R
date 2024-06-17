@@ -9,7 +9,7 @@
 #' @export
 #'
 
-giveCw <- function(cw, from, to, by, ftb = c(from, to, by)){
+giveCw <- function(cw, from = NULL, to = NULL, by = NULL, ftb = c(from, to, by)){
     ordKick <- function(dat, v1, v2 = by){
         dat <- dat[order(dat[[v1]], -dat[[v2]]),]
         dat <- subset(dat, !duplicated(dat[[v1]]))
@@ -17,4 +17,5 @@ giveCw <- function(cw, from, to, by, ftb = c(from, to, by)){
     cw <- subset(cw, !(cw[[from]] %in% missings | cw[[to]] %in% missings), ftb)
     cw <- ordKick(cw, from)
     cw <- ordKick(cw, to)
+    cw <- subset(cw, -by)
 }
