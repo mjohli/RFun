@@ -17,5 +17,5 @@ giveCw <- function(cw, from = NULL, to = NULL, by = NULL, ftb = c(from, to, by))
     cw <- subset(cw, !(cw[[from]] %in% missings | cw[[to]] %in% missings), ftb)
     cw <- ordKick(cw, from)
     cw <- ordKick(cw, to)
-    cw <- subset(cw, -by)
+    cw <- subset(cw, select = !colnames(cw) == by)
 }
