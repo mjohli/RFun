@@ -2,7 +2,7 @@
 % Please edit documentation in R/ipumsGenderAge.R
 \name{ipumsGenderAge}
 \alias{ipumsGenderAge}
-\title{A function that calculates share female median and mean age for IPUMS data}
+\title{A function that calculates share female, median and mean age for IPUMS data}
 \usage{
 ipumsGenderAge(df, code, year = NULL)
 }

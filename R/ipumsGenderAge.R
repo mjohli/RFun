@@ -1,4 +1,4 @@
-#' A function that calculates share female median and mean age for IPUMS data
+#' A function that calculates share female, median and mean age for IPUMS data
 #'
 #' Calculates share female, mean and interpolated median age for IPUMS data sets based on frequency tables.
 #' @param df The data frame to calculate for
