@@ -4,10 +4,12 @@
 \alias{geoDistCalc}
 \title{Calculates distances between all given shapes}
 \usage{
-geoDistCalc(sf, vars = NULL)
+geoDistCalc(sf, geoid = "GEOID", vars = NULL)
 }
 \arguments{
-\item{sf}{Shapefile to calculate distances on}
+\item{sf}{path to shapefile to calculate distances on}
+
+\item{geoid}{name of the geo id column}
 
 \item{vars}{Name(s) of the variables that should be simulated}
 }
