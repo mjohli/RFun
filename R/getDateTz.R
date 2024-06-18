@@ -8,5 +8,5 @@
 getDateTz <- function(x){
     tzs <- substr(x, 21, 23)
     x <- paste0(substr(x, 5, 20), substr(x, 25, 29))
-    parse_date_time(x, orders = "bdHMSY", tz = tzs)
+    lubridate::parse_date_time(x, orders = "bdHMSY", tz = tzs)#Lubridate not yet in DESCRIPTION
 }

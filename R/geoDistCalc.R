@@ -8,13 +8,13 @@
 #'
 
 geoDistCalc <- function(sf, vars = NULL){
-    cbsaShp <- read_sf(sf)
+    cbsaShp <- sf::read_sf(sf)
     cbsaShp <- subset(cbsaShp, select = "GEOID")
-    cbsaShp <- st_centroid(cbsaShp)
-    cbsaDistances <- as.data.frame(st_distance(cbsaShp))
+    cbsaShp <- sf::st_centroid(cbsaShp)
+    cbsaDistances <- as.data.frame(sf::st_distance(cbsaShp))
     colnames(cbsaDistances) <- rownames(cbsaDistances) <- cbsaShp$GEOID
     if(!is.null(vars)){
-        cbsaShp <- st_drop_geometry(cbsaShp)
+        cbsaShp <- sf::st_drop_geometry(cbsaShp)
         cbsaShp[vars] <- matrix(rnorm(length(cbsaShp$GEOID) * length(vars)), ncol = length(vars))
         return(list(df = cbsaShp, dists = cbsaDistances))
     } else{
