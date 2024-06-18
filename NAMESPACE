@@ -3,6 +3,7 @@
 export(allDuplicated)
 export(bfNam)
 export(bigSummary)
+export(cDist)
 export(calcCWFrequencies)
 export(covTex)
 export(cwAutomatic)
