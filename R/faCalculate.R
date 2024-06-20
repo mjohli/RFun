@@ -13,8 +13,9 @@
 faCalculate <- function(faDat, cutoff, nFactors = NULL, nRound = 3, method = c("pa", "minres"), rotate = "oblimin"){
     hPA <- fa.parallel(x = faDat)
     faRes <- list()
+    facFromPA <- is.null(nFactors)
     for(meth in method){
-        if(is.null(nFactors)){
+        if(facFromPA){
             if(meth == "pa"){
                 nFactors <- hPA$ncomp
             } else if(meth == "minres"){
