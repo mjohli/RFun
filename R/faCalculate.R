@@ -8,8 +8,6 @@
 #' @param method Method for factor analysis, can be a vector
 #' @param rotate Rotation method if needed
 #' @export
-#' @examples
-#' floorCeil(0.4592)
 #'
 
 faCalculate <- function(faDat, cutoff, nFactors = NULL, nRound = 3, method = c("pa", "minres"), rotate = "oblimin"){
@@ -18,9 +16,9 @@ faCalculate <- function(faDat, cutoff, nFactors = NULL, nRound = 3, method = c("
     for(meth in method){
         if(is.null(nFactors)){
             if(meth == "pa"){
-                nFactors <- hPa$ncomp
+                nFactors <- hPA$ncomp
             } else if(meth == "minres"){
-                nFactors <- hPa$nfact
+                nFactors <- hPA$nfact
             } else{
                 stop("Method not yet fully implemented, read some theory;)")
             }
@@ -30,7 +28,7 @@ faCalculate <- function(faDat, cutoff, nFactors = NULL, nRound = 3, method = c("
                 fa(r = faDat, nfactors = i, rotate = rotate, fm = meth)
             faRes[[meth]][[as.character(i)]][["tables"]] <-
                 mFaTable(fa = faRes[[meth]][[as.character(i)]][["result"]],
-                         cutoff = cutoff, n = n, nRound = nRound)
+                         cutoff = cutoff, nRound = nRound)
         }
     }
     return(list(pa = hPA, fa = faRes))
