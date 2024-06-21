@@ -16,7 +16,10 @@ stringToNum <- function(x, n = c(1, 2), words = TRUE, strOut = FALSE, encodeClea
         x <- stringi::stri_trans_general(str = x, id = "latin-ascii")
     }
     if(words){
-        x <- Vectorize(FUN = wordstonumbers::words_to_numbers)(x)
+        for(i in 1:length(x)){
+            tryCatch(x[i] <- wordstonumbers::words_to_numbers(x[i]), error = function(e) cat(paste0(e, "i = ", i, "\nx[i] = ", x[i])))
+        }
+        x <- ifelse(is.null(x), NA, x)
     }
     x <- gsub(pattern = paste0("^\\D*(\\d{", paste(n, collapse = ","), "})(\\D.*)?$"), replacement = "\\1", x)
     if(!strOut){
