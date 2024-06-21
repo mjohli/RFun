@@ -4,7 +4,14 @@
 \alias{stringToNum}
 \title{A string to numeric converter}
 \usage{
-stringToNum(x, n = c(1, 2), words = TRUE, strOut = FALSE, encodeCleaner = TRUE)
+stringToNum(
+  x,
+  n = c(1, 2),
+  words = TRUE,
+  strOut = FALSE,
+  encodeCleaner = TRUE,
+  wtnErrorCatch = FALSE
+)
 }
 \arguments{
 \item{x}{A character vector containing numeric information}
@@ -16,6 +23,8 @@ stringToNum(x, n = c(1, 2), words = TRUE, strOut = FALSE, encodeCleaner = TRUE)
 \item{strOut}{Boolean indicating whether output should be string or numeric}
 
 \item{encodeCleaner}{Boolean indicating whether input should be cleaned to avoid errors by invalid bytecode}
+
+\item{wtnErrorCatch}{Boolean indicating whether word to number conversion should be looped, use only if errors occur, weakens performance.}
 }
 \description{
 This resolves encoding issues and extracts a number of specified length from a string

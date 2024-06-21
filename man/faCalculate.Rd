@@ -29,7 +29,3 @@ faCalculate(
 \description{
 Dataframe needs to consist only of the items as columns and participants as rows
 }
-\examples{
-floorCeil(0.4592)
-
-}
