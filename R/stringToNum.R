@@ -6,6 +6,7 @@
 #' @param words Boolean indicating whether number words should be converted to numbers (can increase calculation time)
 #' @param strOut Boolean indicating whether output should be string or numeric
 #' @param encodeCleaner Boolean indicating whether input should be cleaned to avoid errors by invalid bytecode
+#' @param wtnErrorCatch Boolean indicating whether word to number conversion should be looped, use only if errors occur, weakens performance.
 #' @export
 #' @examples
 #' stringToNum(c("abc", "abc123", "abc12de", "twelve"))
