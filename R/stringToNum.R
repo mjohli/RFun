@@ -17,6 +17,10 @@ stringToNum <- function(x, n = c(1, 2), words = TRUE, strOut = FALSE, encodeClea
         x <- stringi::stri_trans_general(str = x, id = "latin-ascii")
     }
     if(words){
+        if(sum(is.na(x)) > 0){
+            warning("NAs in vector")
+            x <- ifelse(is.na(x), "", x)
+        }
         if(wtnErrorCatch){
             for(i in 1:length(x)){
                 tryCatch(x[i] <- wordstonumbers::words_to_numbers(x[i]), error = function(e) cat(paste0(e, "i = ", i, "\nx[i] = ", x[i])))
