@@ -14,7 +14,9 @@ Imports:
     ggplot2 (>= 3.3.6),
     stringi,
     wordstonumbers,
-    sf
+    sf,
+    png,
+    jpeg
 Depends: 
     R (>= 2.10)
 LazyData: true
