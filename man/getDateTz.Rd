@@ -2,13 +2,13 @@
 % Please edit documentation in R/getDateTz.R
 \name{getDateTz}
 \alias{getDateTz}
-\title{!!Preliminary!! function to extract times from the GPIPP!!}
+\title{Function to extract times from the GPIPP}
 \usage{
 getDateTz(x)
 }
 \arguments{
-\item{x}{The date string}
+\item{x}{Vector full of date strings}
 }
 \description{
-First steps to extract times and time zones from older answers to the GPIPP since it has different date formats
+Converts to date and converts the more difficult strings in a second step if necessary
 }
