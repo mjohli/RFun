@@ -4,24 +4,24 @@
 #' @param x Vector full of date strings
 #' @export
 #'
-
 getDateTz <- function(x){
-    res <- as.POSIXct(rep(NA, length(x)))
-    for(i in 1:length(x)){
-        v <- try(as.POSIXct(x[i]), silent = TRUE)
-        if("try-error" %in% class(v)){
-            tz <- gsub("^[A-Z][a-z]{2}\\s[A-Z][a-z]{2}\\s{1,2}\\d{1,2}\\s\\d{2}:\\d{2}:\\d{2}\\s([A-Z]{3})\\s\\d{3,4}$", "\\1", x[i])
-            m <- match(gsub("^[A-Z][a-z]{2}\\s([A-Z][a-z]{2})\\s{1,2}\\d{1,2}\\s\\d{2}:\\d{2}:\\d{2}\\s[A-Z]{3}\\s\\d{3,4}$", "\\1", x[i]), month.abb)
-            tidyd <- paste0(gsub("^[A-Z][a-z]{2}\\s[A-Z][a-z]{2}\\s{1,2}\\d{1,2}\\s\\d{2}:\\d{2}:\\d{2}\\s[A-Z]{3}\\s(\\d{3,4})$", "\\1-", x[i]), m,
-                            gsub("^[A-Z][a-z]{2}\\s[A-Z][a-z]{2}\\s{1,2}(\\d{1,2})\\s(\\d{2}:\\d{2}:\\d{2})\\s[A-Z]{3}\\s\\d{3,4}$", "-\\1 \\2", x[i]))
-            tidyd <- gsub("-(\\d)-", "-0\\1-", tidyd)
-            v <- try(as.POSIXct(tidyd, tz = tz), silent = TRUE)
-            if("try-error" %in% class(v)){
-                v <- NA
-            }
+    tryPOSI <- function(a, tz = ""){
+        a <- try(as.POSIXct(a), silent = TRUE)
+        if("try-error" %in% class(a)){
+            return(NA)
+        }else{
+            return(a)
         }
-        res[i] <- as.POSIXct(v)
     }
+    res <- as.POSIXct(sapply(x, tryPOSI))
+    x <- x[is.na(res)]
+    tzs <- gsub("^[A-Z][a-z]{2}\\s[A-Z][a-z]{2}\\s{1,2}\\d{1,2}\\s\\d{2}:\\d{2}:\\d{2}\\s([A-Z]{3})\\s\\d{3,4}$", "\\1", x)
+    tzs <- ifelse(tzs == "EST", tzs, ifelse(tzs == "EDT", "America/Detroit", NA))
+    ms <- match(gsub("^[A-Z][a-z]{2}\\s([A-Z][a-z]{2})\\s{1,2}\\d{1,2}\\s\\d{2}:\\d{2}:\\d{2}\\s[A-Z]{3}\\s\\d{3,4}$", "\\1", x), month.abb)
+    tidyds <- paste0(gsub("^[A-Z][a-z]{2}\\s[A-Z][a-z]{2}\\s{1,2}\\d{1,2}\\s\\d{2}:\\d{2}:\\d{2}\\s[A-Z]{3}\\s(\\d{3,4})$", "\\1-", x), ms,
+                     gsub("^[A-Z][a-z]{2}\\s[A-Z][a-z]{2}\\s{1,2}(\\d{1,2})\\s(\\d{2}:\\d{2}:\\d{2})\\s[A-Z]{3}\\s\\d{3,4}$", "-\\1 \\2", x))
+    mat <- matrix(c(tzs, tidyds), ncol = 2)
+    x <- apply(mat, 1, function(x)tryPOSI(x[2], x[1]))
+    res[is.na(res)] <- x
     return(res)
 }
-
