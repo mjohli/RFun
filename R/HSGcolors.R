@@ -7,6 +7,7 @@
 #' HSGcolors()
 #' HSGcolors("HSGgreen", "HSGblue")
 #' HSGcolors("all")
+#' @export
 
 HSGcolors <- function(...){
     colors <- c(HSGgreen = "#00802f", HSGdarkgreen = "#0a5f2d",
