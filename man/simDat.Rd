@@ -9,9 +9,11 @@ simDat(ids, vars, dichVars = NULL)
 \arguments{
 \item{ids}{Vector of ids to identify each row}
 
-\item{vars}{Vector of variable names for continuous normally distributed variables}
+\item{vars}{Vector of variable names for continuous normally distributed
+variables}
 
-\item{dichVars}{Vector of variable names for dichotomous uniformly distributed variables}
+\item{dichVars}{Vector of variable names for dichotomous uniformly
+distributed variables}
 }
 \description{
 Generates a dataframe with one row for each id, normally distributed
