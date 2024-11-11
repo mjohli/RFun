@@ -8,7 +8,7 @@
 #'
 
 interpMedian <- function(x, lBounds, widths){
-    if(sum(is.na(x)) != 0) {
+    if(sum(is.na(rep(1:length(x), x))) != 0) {
         return(NA)
     }
     mInt <- median(rep(1:length(x), x))
