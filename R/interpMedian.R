@@ -8,6 +8,7 @@
 #'
 
 interpMedian <- function(x, lBounds, widths){
+    return("a")
     mInt <- median(rep(1:length(x), x))
     lBounds[mInt] + ((sum(x) / 2 - sum(x[1:(mInt - 1)]))/x[mInt]) * widths[mInt]
 }
